@@ -1,46 +1,33 @@
-#pragma once
+#ifndef CARD_H
+#define CARD_H
 #include <iostream>
+#include <string>
 
-using namespace std;
+const int red = 1;
+const int green = 2;
+const int blue = 3;
+const int yellow = 4;
 
-
+const int changeDeck = 0;
+const int reverse = 10;
+const int skip = 11;
+const int plusTwo = 12;
+const int plusFour = 13;
+const int changeColor = 14;
 
 class Card {
-
 private:
-	int* cardList[108];
-	int color;
-	int value;
-	int cardType;
-
+    int color;
+    int value;
+    int type;
 
 public:
+    Card();
+    Card(int ccolor, int vvalue, int ttype);
 
-	Card() {};
-	Card(const int col, int val, int typ) {
-
-		color = col;
-		value = val;
-		cardType = typ;
-	}
-
-	int getColor() const;
-	int getValue() const;
-	void setColor(const int& c);
-	void setValue(int v);
+    int getColor() const;
+    int getValue() const;
+    std::string toString() const;
 };
 
-
-const int red = 0;
-const int green = 1;
-const int yellow = 2;
-const int blue = 3;
-
-const int changeDecks = 0;
-const int skipTurn = 1;
-const int reverse = 2;
-const int plusTow = 3;
-const int plusfour = 4;
-const int changeColor = 5;
-
-
+#endif

@@ -1,27 +1,42 @@
-#pragma once
+#include "Card.h"
 #include <iostream>
+#ifndef GAME_H
+#define GAME_H
+
+#include "Player.h"
 #include "Card.h"
 
-class UnoGame {
-
+class Game {
 private:
-
-	    Card* deck[108];
-		int player;
-	    int pointA, pointB;
+    Card* listD[108];
+    int player;
+    int point1, point2;
+    int currentColor;
+    Player player1;
+    Player player2;
 
 public:
-    UnoGame();
+    Game();
 
-    void initializeDeck();
-    void shuffleDeck();
-    void dealInitialCards();
+    void plusTwo(Player& currentPlayer, Player& nextPlayer);
+
+    void plusFour(Player& currentPlayer, Player& nextPlayer);
+
+    bool counterPlusFour(Player& currentPlayer);
+
+    void changeColor(Player& currentPlayer);
+
     void startGame();
 
-    void shift();
-    void sayUno();
-    void useCard();
-    void useCardAndSkip();
+    void playerTurn();
+
+    void putCard();
+
     void takeCards();
 
+    void sayUno();
+
+    void winGame();
 };
+
+#endif
